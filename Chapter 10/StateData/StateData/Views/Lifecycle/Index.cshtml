@@ -1,0 +1,37 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Session Lifecycle</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        body { padding-top: 10px; }
+    </style>
+</head>
+<body class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Session</div>
+        <table class="table">
+            <tr><th>Session ID</th><td>@Session.SessionID</td></tr>
+            <tr><th>Is New?</th><td>@Session.IsNewSession</td></tr>
+            <tr><th>State Data Count</th><td>@Session.Count</td></tr>
+            <tr><td>Mode</td><td>@Session.CookieMode</td></tr>
+            <tr><td>Cookieless</td><td>@Session.IsCookieless</td></tr>
+            <tr><td>URL</td><td>@Url.Action("Index")</td></tr>
+            <tr><td>Link</td><td>@Html.ActionLink("Click Me", "Index")</td></tr>
+        </table>
+    </div>
+    @using (Html.BeginForm()) {
+        <div class="checkbox">
+            <label>@Html.CheckBox("store") Store State Data</label>
+        </div>
+        <div class="checkbox">
+            <label>@Html.CheckBox("abandon") Abandon Session</label>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    }
+</body>
+</html>

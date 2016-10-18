@@ -1,0 +1,26 @@
+﻿@model long?
+@{Layout = null;}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Data Cache</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        body { padding-top: 10px; }
+    </style>
+</head>
+<body class="container">
+    <div class="alert alert-info">
+        @if (Model.HasValue) {
+            @: Cached Data: @Model bytes
+        } else {
+            @: No Cached Data
+        }
+    </div>
+    @using (Html.BeginForm("PopulateCache", "Cache")) {
+        <button class="btn btn-primary">Populate Cache</button>
+    }
+</body>
+</html>

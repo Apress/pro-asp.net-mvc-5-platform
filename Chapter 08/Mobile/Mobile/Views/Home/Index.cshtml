@@ -1,0 +1,26 @@
+﻿@using Mobile.Models
+@model Programmer[]
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Mobile Devices</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        body { padding-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="alert alert-success">
+        This is the /Views/Home/Index.cshtml view
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Programmers</div>
+        @Html.Partial("Programmers", Model)
+    </div>
+</body>
+</html>

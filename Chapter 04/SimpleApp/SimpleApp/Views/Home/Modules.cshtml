@@ -1,0 +1,27 @@
+﻿@model Tuple<string, string>[]
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Modules</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr><th>Name</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+            @foreach (Tuple<string, string> x in Model) {
+                <tr><td>@x.Item1</td><td>@x.Item2</td></tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

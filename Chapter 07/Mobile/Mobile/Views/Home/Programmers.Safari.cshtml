@@ -1,0 +1,13 @@
+﻿@using Mobile.Models
+@model Programmer[]
+
+<div class="panel-body">
+    <ul>
+        @foreach (Programmer prog in Model) {
+            <li>
+                @prog.FirstName @prog.LastName,
+                @prog.City (@prog.Language)
+            </li>
+        }
+    </ul>
+</div>

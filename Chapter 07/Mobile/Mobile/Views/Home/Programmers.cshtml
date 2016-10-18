@@ -1,0 +1,23 @@
+﻿@using Mobile.Models
+@model Programmer[]
+
+<table class="table table-striped">
+    <tr>
+        <th>First Name</th>
+        <th class="hidden-xs">Last Name</th>
+        <th class="hidden-xs">Title</th>
+        <th>City</th>
+        <th class="hidden-xs">Country</th>
+        <th>Language</th>
+    </tr>
+    @foreach (Programmer prog in Model) {
+        <tr>
+            <td>@prog.FirstName</td>
+            <td class="hidden-xs">@prog.LastName</td>
+            <td class="hidden-xs">@prog.Title</td>
+            <td>@prog.City</td>
+            <td class="hidden-xs">@prog.Country</td>
+            <td>@prog.Language</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,37 @@
+﻿@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SyncTest</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        body { padding-top: 10px; }
+    </style>
+    <script>
+        $(document).ready(function () {
+            var start = new Date();
+            var counter = 10;
+            for (var i = 0; i < 10; i++) {
+                $.get("/SyncTest/GetMessage", { id: i }, function (data) {
+                    $("#msgTable tbody").append("<tr><td>" + data + "</th></tr>");
+                    counter--;
+                    if (counter == 0) {
+                        var time = new Date().getTime() - start.getTime();
+                        $("#results").text("Time (ms): " + time);
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body class="container">
+    <div id="results" class="alert alert-success"></div>
+    <table id="msgTable" class="table table-bordered table-striped">
+        <tr><th>Messages</th></tr>
+    </table>
+</body>
+</html>

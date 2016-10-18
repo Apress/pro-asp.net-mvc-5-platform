@@ -1,0 +1,21 @@
+﻿@model int
+@{ Layout = null; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Output Caching</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        body { padding-top: 10px; }
+    </style>
+</head>
+<body class="container">
+    <div class="alert alert-info">
+        The counter value: @Model
+    </div>
+    @Html.Action("GetTime")
+    @Html.ActionLink("Update", "Index", null, new { @class = "btn btn-primary" })
+</body>
+</html>

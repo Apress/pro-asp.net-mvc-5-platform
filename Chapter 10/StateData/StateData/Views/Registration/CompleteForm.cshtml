@@ -1,0 +1,22 @@
+﻿@{ Layout = null; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Finished</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        body { padding-top: 10px; }
+    </style>
+</head>
+<body class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Registration Details</div>
+        <table class="table table-striped">
+            <tr><th>Name</th><td>@ViewBag.Name</td></tr>
+            <tr><th>Country</th><td>@ViewBag.Country</td></tr>
+        </table>
+    </div>
+</body>
+</html>

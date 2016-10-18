@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Glimpse.AspNet</id>
+    <version>1.7.0</version>
+    <title>Glimpse ASP.NET</title>
+    <authors>nmolnar,  avanderhoorn</authors>
+    <owners>nmolnar,  avanderhoorn</owners>
+    <licenseUrl>http://www.opensource.org/licenses/apache2.0</licenseUrl>
+    <projectUrl>http://getglimpse.com/</projectUrl>
+    <iconUrl>http://getglimpse.com/content/glimpse100.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Glimpse is a web debugging and diagnostics tool used to gain a better understanding of whats happening inside of your ASP.NET 4.0 application. For ASP.NET MVC3 support, please NuGet Glimpse.MVC3.</description>
+    <summary>ASP.NET 4.5 web debugging and diagnostics tool.</summary>
+    <releaseNotes>Welterweight release for Asp.Net:
+ - Added a new Caching Tab which will provide insights into the use of 'HttpRuntime.Cache'
+ - Fix where connection strings are not always properly parsed
+ - Removed the Cookie Path and Secure data points from the request tab as the values are incorrect
+ - Update resource result to not generate null reference exception when dealing with QueryString</releaseNotes>
+    <tags>ASP.NET Web WebForms Glimpse</tags>
+    <dependencies>
+      <dependency id="Glimpse" version="1.8.0" />
+    </dependencies>
+  </metadata>
+</package>

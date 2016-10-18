@@ -1,0 +1,42 @@
+﻿@using Users.Models
+@using Users.Infrastructure
+@model IEnumerable<AppRole>
+@{ ViewBag.Title = "Roles"; }
+<div class="panel panel-primary">
+    <div class="panel-heading">Roles</div>
+    <table class="table table-striped">
+        <tr><th>ID</th><th>Name</th><th>Users</th><th></th></tr>
+        @if (Model.Count() == 0) {
+            <tr><td colspan="4" class="text-center">No Roles</td></tr>
+        } else {
+            foreach (AppRole role in Model) {
+                <tr>
+                    <td>@role.Id</td>
+                    <td>@role.Name</td>
+                    <td>
+                        @if (role.Users == null || role.Users.Count == 0) {
+                            @: No Users in Role
+                        } else {
+                            <p>
+                                @string.Join(", ", role.Users.Select(x =>
+                                Html.GetUserName(x.UserId)))
+                        </p>
+                        }
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "RoleAdmin",
+                            new { id = role.Id })) {
+                            @Html.ActionLink("Edit", "Edit", new { id = role.Id },
+                                    new { @class = "btn btn-primary btn-xs" })
+                            <button class="btn btn-danger btn-xs"
+                                    type="submit">
+                                Delete
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+@Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })

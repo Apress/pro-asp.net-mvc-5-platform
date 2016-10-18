@@ -1,0 +1,46 @@
+﻿@using SimpleApp.Models
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Vote</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body class="container">
+    <div class="panel panel-primary">
+        @if (ViewBag.SelectedColor == null) {
+            <h4 class="panel-heading">Vote for your favorite color</h4>
+        } else {
+            <h4 class="panel-heading">Change your vote from @ViewBag.SelectedColor</h4>
+        }
+
+        <div class="panel-body">
+
+            @using (Html.BeginForm()) {
+                @Html.DropDownList("color",
+                        new SelectList(Enum.GetValues(typeof(Color))), "Choose a Color",
+                            new { @class = "form-control" })
+                <div>
+                    <button class="btn btn-primary center-block"
+                            type="submit">
+                        Vote
+                    </button>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <h5 class="panel-heading">Results</h5>
+        <table class="table table-condensed table-striped">
+            @foreach (Color c in Enum.GetValues(typeof(Color))) {
+                <tr><td>@c</td><td>@Votes.GetVotes(c)</td></tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
