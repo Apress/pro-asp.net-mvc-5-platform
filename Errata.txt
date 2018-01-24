@@ -1,0 +1,46 @@
+1. Page 32, Table 3-5: Under AuthorizeRequest should be PostAuthorizeRequest. It's mentioned in the Description column, but is missing from the Name one.
+
+2. Page 33, Table 3-5: Between PreSendRequestHeaders and PreSendRequestContent should be an empty line in order to be correctly aligned with the corresponding description.
+
+3. Page 73, Section "Understanding the Built-in Modules", in the paragraph after Listing 4-9: "... the module objects returned by the HttpApplication.Module property." should be "... the module objects returned by the HttpApplication.Modules property.".
+
+4. Page 81, Section "Understanding Handlers in the Request Life Cycle", in the second paragraph, second phrase (typo): "They can be used flor diagnosis and debugging..." should be "They can be used for diagnosis and debugging...".
+
+5. Page 82, Section "Understanding Handlers in the Request Life Cycle", in the paragraph before Figure 5.3 (typo): "In figure 5-1, I have shown the MVC programmer's view..." should be (I suppose) "In figure 5-2, I have shown the MVC programmer's view...".
+
+
+6. Page 84, Section "Handlers and the Life-Cycle Events", in the first paragraph (typo): "In Figure 5-3, I explained..." should be (I suppose) "In Figure 5-4, I explained...".
+
+7. Page 85, Section "Registering a Handler Using URL Routing", in the first paragraph, the second phrase (typo): "The firs technique for registering..." should be "The first technique for registering...".
+
+8. Page 105, Section "Preparing the Example Project", in the first paragraph (typo): "... and set the name of the project to Request" should be "... and set the name of the project to RequestFlow".
+
+9. Page 125, Section "Handling Error Notifications", in the note after the Listing 6-15 (typo): "The HandleEvent method uses the HttpContect.CurrentNotification property..." should be "The HandleEvent method uses the HttpContext.CurrentNotification property...".
+
+10. Page 136, Section "Getting Device Capabilities", Listing 7-5: first code line, "@model IEnumerable<Tuple<string, string>>", is not necessary (@Model is not used anywhere in the view).
+
+11. Page 155, Section "Using Partial Views", Listing 7-16 and the paragraph above: The suggested name for the partial view is Programmers.Safari.cshtml, which fails, because it contains ".", which appears to be an illegal character for a view (file) name. Anyway, I used a valid name and after that I managed to change the name to the suggested value. Please note that I used Visual Studio 2015.
+
+12. Page 209, Section "Using the Location Element", at the end of the paragraph before Listing 9-24 (typo): "...3as shown in Listing 9-24." should be "...3as shown in Listing 9-24.".
+
+13. Page 239, Section "Demonstration the problem", within Listing 10-16: $("#msgTable tbody").append("<tr><td>" + data + "</th></tr>") should be $("#msgTable tbody").append("<tr><td>" + data + "</td></tr>").
+
+14. Page 246, Section "Storing Session Data", Table 10-10: I think that within the description for StateServer, instead of 'See the "Using a SQL Database" section.' should be 'See the "Using the State Server" section.'
+
+15. Page 247, Section "Using the State Server", within the paragraph under the Listing 10-20 (typo): "stateConnetionString" should be "stateConnectionString".
+
+16. Page 254, Section "Using Base Caching", Listing 11-1: PopulateCache is failing because the Apress website is HTTPS now. The error I got is "The request was aborted: Could not create SSL/TLS secure channel.". To fix it, I added the next line as the first in the PopulateCache method: "ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;".
+
+17. Page 265, Section "Depending on another Cached Item", within the last phrase in the first paragraph (logic): "... I have added a new action method to the Cache controller, as shown in Listing 11-7.". Listing 11-7 doesn't contain a new action method, but a new cached item. So I think that the correct phrase would be "... I have added a new cached item, as shown in Listing 11-7.".
+
+18. Page 270, Section "Receiving Dependency Notifications", within the last paragraph: "... navigate to Cache/Item..." should be "... navigate to Cache/Index...".
+
+19. Page 305, Section "Creating the User Class", within the paragraph before Listing 13-5 (typo): "... I created a class file called AppUserModels.cs..." should be "... I created a class file called AppUser.cs...".
+
+20. Page 309, Section "Using ASP.NET Identity", the title for Table 13-4 (typo): "Putting Content Caching by Attribute in Context" should be "Putting ASP.NET Identity in Context".
+
+21. Page 310, Section "Creating the View", Listing 13-24 (code): The validation summary code is missing: "@Html.ValidationSummary(false)". Maybe before "@using (Html.BeginForm())"?
+
+22. Page 337-338, Section "Preparing to Implement Authentication", Listing 14-3 (code): "if (ModelState.IsValid) { }" should be moved from the GET Login action to the POST one. In Listing 14-5 (page 340) this is correctly implemented.
+
+23. Page 347, Section "Creating and deleting roles", Listing 14-9, within HttpPost Create action: "return View(name);" should be "return View((object)name);". View(string) is showing the view with the name specified specified as parameter; here we need the overload View(object), where the parameter is the model passed to the view.
